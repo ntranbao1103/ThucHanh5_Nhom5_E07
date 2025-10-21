@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infographic & Video – Cảnh Ngày và Đêm</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow-x: hidden;
+        transition: background 2s ease;
+        background: linear-gradient(to top, #9fd3ff, #dff6ff);
+        font-family: "Times New Roman", serif;
+        color: #002147;
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding-top: 150px;
+    }
+
+    h2 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+
+    img, video {
+        max-width: 80%;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        margin-bottom: 40px;
+    }
+
+    /* Phần bản quyền */
+    .credit {
+        font-size: 16px;
+        color: #444;
+        margin-top: 20px;
+        text-align: center;
+        z-index: 3;
+        position: relative;
+    }
+    .credit a {
+        color: #0077cc;
+        text-decoration: none;
+    }
+    .credit a:hover {
+        text-decoration: underline;
+    }
+
+    /* Nút chuyển chế độ */
+    .toggle-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #333;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: 0.4s;
+        z-index: 10;
+    }
+    .toggle-btn:hover {
+        background-color: rgba(255, 255, 255, 1);
+        transform: scale(1.05);
+    }
+
+    /* Mặt trời & mặt trăng */
+    .sun, .moon {
+        position: fixed;
+        top: 80px;
+        left: 100px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        transition: all 2s ease;
+        z-index: 1;
+    }
+    .sun { background: radial-gradient(circle, #ffd93b, #ffa700); }
+    .moon { background: radial-gradient(circle, #fff9c6, #a7a7a7); opacity: 0; }
+
+    /* Mây bay */
+    .cloud {
+        position: fixed;
+        background: white;
+        border-radius: 50px;
+        width: 120px;
+        height: 60px;
+        opacity: 0.85;
+        filter: blur(0.5px);
+        animation: floatClouds linear infinite;
+        z-index: 1;
+    }
+    .cloud::before, .cloud::after {
+        content: '';
+        position: absolute;
+        background: white;
+        width: 80px;
+        height: 80px;
+        top: -20px;
+        left: 10px;
+        border-radius: 50%;
+    }
+    .cloud::after {
+        width: 100px;
+        height: 100px;
+        top: -30px;
+        left: 40px;
+    }
+    @keyframes floatClouds {
+        0% { transform: translateX(-200px); }
+        100% { transform: translateX(110vw); }
+    }
+    .cloud1 { top: 150px; animation-duration: 60s; }
+    .cloud2 { top: 250px; animation-duration: 80s; animation-delay: 10s; }
+    .cloud3 { top: 100px; animation-duration: 100s; animation-delay: 25s; }
+
+    /* Sao lấp lánh */
+    .star {
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: twinkle 2s infinite ease-in-out;
+        z-index: 1;
+    }
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 0.2; }
+    }
+
+    /* Chế độ đêm */
+    .night {
+        background: linear-gradient(to top, #0b0b28, #1b1b52);
+        color: #fffbe6;
+    }
+    .night .sun { opacity: 0; }
+    .night .moon { opacity: 1; left: 80%; top: 60px; }
+    .night .credit { color: #ddd; }
+
+    /* Ghi chú cuối */
+    .note {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        margin-top: 10px;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleMode()">Chuyển Ngày / Đêm</button>
+
+    <div class="sun"></div>
+    <div class="moon"></div>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+    <div class="container">
+        <h2>Infographic</h2>
+        <img src="https://github.com/ntranbao1103/ThucHanh5_Nhom5_E07/blob/main/NhiemVu2/ThucHanh5_2.1_Ngh%C4%A9a.png?raw=true" alt="Infographic">
+
+        <h2>Video</h2>
+        <video controls>
+            <source src="https://github.com/ntranbao1103/ThucHanh5_Nhom5_E07/raw/refs/heads/main/NhiemVu2/ThucHanh5_2.2_B%E1%BB%99iNg%E1%BB%8Dc.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+
+        <!-- Phần bản quyền -->
+        <div class="credit">
+            © 2025 Infographic và Video. All rights reserved. |
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+                Creative Commons Attribution 4.0 International License
+            </a>
+        </div>
+
+        <div class="note">
+            Mã nguồn ban đầu được viết bởi sự hỗ trợ của GitHub Copilot.
+        </div>
+    </div>
+
+<script>
+    let isNight = false;
+    const body = document.body;
+
+    function toggleMode() {
+        isNight = !isNight;
+        body.classList.toggle("night", isNight);
+
+        if (isNight) {
+            createStars();
+        } else {
+            removeStars();
+        }
+    }
+
+    // Tạo sao lấp lánh
+    function createStars() {
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            star.style.top = Math.random() * 100 + "%";
+            star.style.left = Math.random() * 100 + "%";
+            star.style.animationDelay = Math.random() * 2 + "s";
+            document.body.appendChild(star);
+        }
+    }
+
+    // Xóa sao khi trở lại ban ngày
+    function removeStars() {
+        document.querySelectorAll(".star").forEach((s) => s.remove());
+    }
+</script>
+</body>
+</html>
+
