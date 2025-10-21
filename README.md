@@ -10,3 +10,6 @@ B2508364 Huỳnh Trọng Nghĩa
 B2508366 Trần Bảo Ngọc
 
 B2508363 Nguyễn Ngọc Khả Minh
+© 2025 Infographic và Video. All rights reserved.
+     Chia sẻ theo: https://creativecommons.org/licenses/by/4.0/  -
+Giấy phép Creative Commons Attribution 4.0
